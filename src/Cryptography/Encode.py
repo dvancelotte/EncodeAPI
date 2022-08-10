@@ -11,11 +11,13 @@ class Encode():
     
     def __ValidateNumber(self,number):
 
+        if(len(str(number)) > 8 ):
+            raise ValueError("The number lenght must be less or equal 8.") 
+
         if(not str(number).isnumeric()):
             raise ValueError("The number must have only integer numbers [0-9].")
 
-        if(len(str(number)) > 8 ):
-            raise ValueError("The number lenght must be less or equal 8.")      
+     
 
 
     def GetCode(self,number):

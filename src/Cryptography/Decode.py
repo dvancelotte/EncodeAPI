@@ -9,12 +9,13 @@ class Decode():
 
     def __ValidateCode(self,code):
 
-        if(not self.__PATTERN.match(code)):
-            raise ValueError("The code is invalid.")
-
         if(len(str(code)) != 6 ):
-            raise ValueError("The code lenght must be equal 6.")      
+            raise ValueError("The code lenght must be equal 6.") 
 
+        if(not self.__PATTERN.match(code)):
+            raise ValueError("The code is invalid.")     
+
+        print("validate")
 
     def __CalculateNumber(self,code,factor,limit):
 
@@ -27,7 +28,7 @@ class Decode():
         return str(result).rjust(limit,"0") 
 
     def GetNumber(self,code):
-
+        
         self.__ValidateCode(code)
         number=""
         limit = 0
