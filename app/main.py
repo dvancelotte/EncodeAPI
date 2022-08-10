@@ -48,6 +48,6 @@ def getDecode(code):
         number = decode.GetNumber(code)
         return {"number": int(number)}
     except ValueError as err:
-        return JSONResponse(status_code = 400, content={"message":str(err)})
+        return JSONResponse(status_code = 422, content={"message":str(err)})
     except Exception as err:
         return JSONResponse(status_code = 500, content={"message":str(err)})
