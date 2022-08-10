@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append("..")
+sys.path.append("../app/")
 from Cryptography.Encode import  Encode
 from Cryptography.Decode import  Decode
 
