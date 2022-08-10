@@ -3,7 +3,7 @@ import re
 
 class Decode():
 
-    __PATTERN = "!|[A-Z]|[a-z]|[0-9]|@|#|\$|%|\*|\(|\)|\||\-|\_|\=|\+|\^|\/|\?|"
+    __PATTERN = re.compile("!|[A-Z]|[a-z]|[0-9]|@|#|\$|%|\*|\(|\)|\||\-|\_|\=|\+|\^|\/|\?|")
 
 
     def __ValidateCode(self,code):
@@ -11,19 +11,22 @@ class Decode():
         if(len(str(code)) != 6 ):
             raise ValueError("The code lenght must be equal 6.") 
 
-        if(not re.fullmatch(self.__PATTERN,code)):
+        if(not self.__PATTERN.match(code)):
             raise ValueError("The code is invalid.")     
             
 
     def __CalculateNumber(self,code,factor,limit):
 
-        quotient = Cryptography.Cryptography.CODES.Decode[code[0:1]]
-        rest = Cryptography.Cryptography.CODES.Decode[code[1:2]]
-        result = quotient * factor + rest
+        try:
+            quotient = Cryptography.Cryptography.CODES.Decode[code[0:1]]
+            rest = Cryptography.Cryptography.CODES.Decode[code[1:2]]
+            result = quotient * factor + rest
 
-        if(len(str(result))> limit): raise ValueError("The code is invalid.")
-        
-        return str(result).rjust(limit,"0") 
+            if(len(str(result))> limit): raise ValueError("The code is invalid.")
+            
+            return str(result).rjust(limit,"0") 
+        except:
+            raise ValueError("The code is invalid.")
 
     def GetNumber(self,code):
         

@@ -6,12 +6,6 @@ from Cryptography.Decode import  Decode
 
 class appTest(unittest.TestCase):
 
-  #RodarTeste de 0 a 100000000
-  #99999999
-  #0
-  #1587
-  #888587
-
   def test_numberWhitLetter(self):
     with self.assertRaisesRegex(ValueError, "The number must have only integer numbers."):
       Encode().GetCode("14587a")
@@ -23,7 +17,7 @@ class appTest(unittest.TestCase):
 
   def test_codeLess6Digit(self):
     with self.assertRaisesRegex(ValueError, "The code lenght must be equal 6."):
-      Decode().GetCode("ertdg")
+      Decode().GetNumber("ertdg")
 
   def test_codeGreaterThan6Digit(self):
     with self.assertRaisesRegex(ValueError, "The code lenght must be equal 6."):
@@ -36,6 +30,16 @@ class appTest(unittest.TestCase):
   def test_codeInvalid(self):
     with self.assertRaisesRegex(ValueError, "The code is invalid."):
       Decode().GetNumber("!!!!!]")
+
+  def test_cryptography(self):
+
+    numbers = [99999999,0,1587,888587]
+
+    for number in numbers:
+      code = Encode().GetCode(number)
+      decodedNumber = Decode().GetNumber(code) 
+      self.assertTrue(number == decodedNumber)
+
 
 if __name__ == '__main__':
     unittest.main()
