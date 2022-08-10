@@ -15,7 +15,7 @@ class Encode():
             raise ValueError("The number lenght must be less or equal 8.") 
 
         if(not str(number).isnumeric()):
-            raise ValueError("The number must have only integer numbers [0-9].")
+            raise ValueError("The number must have only integer numbers.")
 
      
 

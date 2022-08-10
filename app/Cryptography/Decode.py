@@ -3,8 +3,7 @@ import re
 
 class Decode():
 
-    #__PATTERN = re.compile("[A-Z][0-9]!@#$%*()|-_=+^/?")
-    __PATTERN = re.compile("!|[A-Z]|[a-z]|[0-9]|@|#|\$|%|\*|\(|\)|\||\-|\_|\=|\+|\^|\/|\?|")
+    __PATTERN = "!|[A-Z]|[a-z]|[0-9]|@|#|\$|%|\*|\(|\)|\||\-|\_|\=|\+|\^|\/|\?|"
 
 
     def __ValidateCode(self,code):
@@ -12,10 +11,9 @@ class Decode():
         if(len(str(code)) != 6 ):
             raise ValueError("The code lenght must be equal 6.") 
 
-        if(not self.__PATTERN.match(code)):
+        if(not re.fullmatch(self.__PATTERN,code)):
             raise ValueError("The code is invalid.")     
-
-        print("validate")
+            
 
     def __CalculateNumber(self,code,factor,limit):
 
