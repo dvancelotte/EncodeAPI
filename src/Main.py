@@ -5,7 +5,7 @@ from Cryptography import Decode
 encode = Encode.Encode()
 decode = Decode.Decode()
 
-for number in range(100000000):
+for number in range(10):
     code = encode.GetEncode(number)
     decodedNumber = decode.GetNumber(code)
     if(int(decodedNumber) != int(number)): print("number: " + str(number) + " decode:" + str(decodedNumber))

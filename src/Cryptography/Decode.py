@@ -3,7 +3,9 @@ import re
 
 class Decode():
 
-    __PATTERN = re.compile("[A-Z][0-9]!@#$%*()|-_=+^/?")
+    #__PATTERN = re.compile("[A-Z][0-9]!@#$%*()|-_=+^/?")
+    __PATTERN = re.compile("!|[A-Z]|[a-z]|[0-9]|@|#|\$|%|\*|\(|\)|\||\-|\_|\=|\+|\^|\/|\?|")
+
 
     def __ValidateCode(self,code):
 
@@ -26,6 +28,7 @@ class Decode():
 
     def GetNumber(self,code):
 
+        self.__ValidateCode(code)
         number=""
         limit = 0
 
