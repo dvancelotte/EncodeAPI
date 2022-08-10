@@ -1,18 +1,43 @@
-from Cryptography import Cryptography 
+from Cryptography import Cryptography
+import re
 
-class Decode(Cryptography):
+class Decode():
 
-    def __init__(self):
-        super().__init__()
-    
-    def __CalculateNumber(self,group,code):
+    __PATTERN = re.compile("[A-Z][0-9]!@#$%*()|-_=+^/?")
 
-        quotient = self.Codes.Decode[code[0:1]]
-        rest = self.Codes.Decode[code[1:2]]
-        return quotient * self.__FACTORS[group] + rest
+    def __ValidateCode(self,code):
 
-    def GetNumber(self,group,code):
+        if(not self.__PATTERN.match(code)):
+            raise ValueError("The code is invalid.")
 
-        quotient = self.Codes.Decode[code[0:1]]
-        rest = self.Codes.Decode[code[1:2]]
-        return quotient * self.__FACTORS[group] + rest
+        if(len(str(code)) != 6 ):
+            raise ValueError("The code lenght must be equal 6.")      
+
+
+    def __CalculateNumber(self,code,factor,limit):
+
+        quotient = Cryptography.Cryptography.CODES.Decode[code[0:1]]
+        rest = Cryptography.Cryptography.CODES.Decode[code[1:2]]
+        result = quotient * factor + rest
+
+        if(len(str(result))> limit): raise ValueError("The code is invalid.")
+        
+        return str(result).rjust(limit,"0") 
+
+    def GetNumber(self,code):
+
+        number=""
+        limit = 0
+
+        for factor in Cryptography.Cryptography.FACTORS:
+
+            group = int(factor)
+            start = (group -1)*2
+            finish = start +2          
+
+            if(group<=2): limit = 3
+            else: limit =2
+                
+            number = f'{number}{self.__CalculateNumber(code[start:finish],Cryptography.Cryptography.FACTORS[factor],limit)}'
+
+        return int(number)
