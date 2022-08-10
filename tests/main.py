@@ -1,8 +1,8 @@
 import unittest
 import sys
 sys.path.append("../app/")
-from Cryptography.Encode import  Encode
-from Cryptography.Decode import  Decode
+from ..app.Cryptography.Encode import  Encode
+from ..app.Cryptography.Decode import  Decode
 
 class appTest(unittest.TestCase):
 
