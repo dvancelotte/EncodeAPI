@@ -18,7 +18,7 @@ class Encode():
             raise ValueError("The number lenght must be less or equal 8.")      
 
 
-    def GetEncode(self,number):
+    def GetCode(self,number):
         
         self.__ValidateNumber(number)
 
