@@ -2,8 +2,7 @@ import unittest
 import sys
 import os
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(f'{os.path.dirname(SCRIPT_DIR)}\\app')
+sys.path.append(f'../app/')
 from Cryptography.Encode import  Encode
 from Cryptography.Decode import  Decode
 
