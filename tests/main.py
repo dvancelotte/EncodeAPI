@@ -1,8 +1,11 @@
 import unittest
 import sys
-sys.path.append("../app/")
-from ..app.Cryptography.Encode import  Encode
-from ..app.Cryptography.Decode import  Decode
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(f'{os.path.dirname(SCRIPT_DIR)}\\app')
+from Cryptography.Encode import  Encode
+from Cryptography.Decode import  Decode
 
 class appTest(unittest.TestCase):
 
