@@ -4,7 +4,7 @@
 
 Python Version : 3.10.5
 
-### Run
+## Run
 
 #### Install libs
 ```bash
@@ -17,7 +17,7 @@ cd app/
 uvicorn main:app --reload
 ```
 
-### Docker
+## Docker
 
 #### Build Image
 ```bash
@@ -29,7 +29,7 @@ docker build -t encodeapi .
 docker run -d --name encodeapicontanier -p 80:80 encodeapi
 ```
 
-### Test
+## Test
 
 ```bash
 pip install pytest
