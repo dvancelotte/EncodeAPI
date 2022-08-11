@@ -3,12 +3,14 @@
 ### Run
 
 ```bash
-Virtual Enviroment
-python -m venv ./venv
-```
-```bash
 Install libs
 pip install -r requirements.txt
+```
+
+```bash
+Run API
+cd app/
+uvicorn main:app --reload
 ```
 ### Docker
 
