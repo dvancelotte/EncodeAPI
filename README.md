@@ -2,24 +2,26 @@
 
 ### Run
 
+#### Install libs
 ```bash
-Install libs
 pip install -r requirements.txt
 ```
 
+####  Run API
 ```bash
-Run API
 cd app/
 uvicorn main:app --reload
 ```
+
 ### Docker
 
+#### Build Image
 ```bash
-Build Image
 docker build -t encodeapi .
 ```
+
+#### Run Docker
 ```bash
-Run Docker
 docker run -d --name encodeapicontanier -p 80:80 encodeapi
 ```
 
@@ -28,8 +30,8 @@ docker run -d --name encodeapicontanier -p 80:80 encodeapi
 ```bash
 pip install pytest
 ```
+
 ```bash
-Run Test
 pytest tests/main*
 ```
 
