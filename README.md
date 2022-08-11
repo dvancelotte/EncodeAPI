@@ -3,6 +3,7 @@
 ## Info
 
 Python Version : 3.10.5
+Documentation: http://localhost:8000/docs
 
 ## Run
 
