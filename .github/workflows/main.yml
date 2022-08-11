@@ -31,10 +31,8 @@ jobs:
         run: python -c "import sys; print(sys.version)"
       - name: Install Requeriments
         run: pip install -r requirements.txt
-      - name: enable set-env
-        run: echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
       - name: Set PYTHONPATH
-        run: echo "::set-env name=PYTHONPATH::home/runner/work/<repo_name>"
+        run: echo "name=PYTHONPATH::home/runner/work/<repo_name>" >> $GITHUB_ENV
       - name: Install pytest
         run: |
           python -m pip install --upgrade pip
