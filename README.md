@@ -1,5 +1,9 @@
 # EncodeAPI
 
+## Info
+
+Python Version : 3.10.5
+
 ### Run
 
 #### Install libs
